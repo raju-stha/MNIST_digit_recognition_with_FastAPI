@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST Digit Recognition</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>MNIST Digit Recognition</h1>
+    <form id="digitForm">
+        <label for="inputDigit">Enter a index number to select the input image from a dataset:</label>
+        <input type="number" id="inputDigit" name="inputDigit" min="0" max="500" required>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="plotContainer"></div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById("digitForm").addEventListener("submit", async function (event) {
+            event.preventDefault();  // Prevent default form submission
+            const inputDigit = document.getElementById("inputDigit").value;
+
+            // Send POST request to FastAPI server
+            try {
+                const response = await axios.post("http://127.0.0.1:8000/estimate/", {
+                    input_integer: parseInt(inputDigit)
+                });
+
+                // Extract the plot data from the response
+                const plotData = response.data.plot;
+
+                // Create an image element and set its source to the plot data
+                const img = document.createElement("img");
+                img.src = "data:image/png;base64," + plotData;
+
+                // Append the image element to the plot container
+                const plotContainer = document.getElementById("plotContainer");
+                plotContainer.innerHTML = "";  // Clear previous plot
+                plotContainer.appendChild(img);
+            } catch (error) {
+                console.error("Error fetching plot:", error);
+            }
+        });
+    </script>
+</body>
+
+</html>
