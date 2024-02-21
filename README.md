@@ -3,11 +3,11 @@ This repository contains a FastAPI-based web API for recognizing handwritten dig
 
 
 # Contents:
-`mnist_digit_recognition_api.py`: Python script containing the FastAPI application code.
-`mnist_digit_recognition_html.html`: HTML file for the user interface.
-`Dockerfile`: Dockerfile for containerizing the application.
-`requirements.txt`: File containing the Python dependencies required for running the application.
-`mnist_model.h5`: Saved keras model trained on the MNIST dataset.
+* `mnist_digit_recognition_api.py`: Python script containing the FastAPI application code.
+* `mnist_digit_recognition_html.html`: HTML file for the user interface.
+* `Dockerfile`: Dockerfile for containerizing the application.
+* `requirements.txt`: File containing the Python dependencies required for running the application.
+* `mnist_model.h5`: Saved keras model trained on the MNIST dataset.
 
 # Usage:
 ### A) Running the API locally:
