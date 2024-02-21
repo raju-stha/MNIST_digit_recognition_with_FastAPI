@@ -13,12 +13,13 @@ This repository contains a FastAPI-based web API for recognizing handwritten dig
 ### A) Running the API locally:
 
 1) Clone the repository.
-2) Install the required Python dependencies using pip install -r requirements.txt.
-3) Run the FastAPI application using uvicorn mnist_digit_recognition_api:app --host 0.0.0.0 --port 8000.
+2) Install the required Python dependencies using `pip install -r requirements.txt`.
+3) Run the FastAPI application using `uvicorn mnist_digit_recognition_api:app --host 0.0.0.0 --port 8000`.
 4) Access the API with `mnist_digit_recognition_html.html`. 
 
 ### B) Using the Docker image:
-
+1) Clone the repository.
+2) Install Docker following the instructions for your operating system.
 1) Build the Docker image using `docker build -t mnist-digit-recognition .`.
 2) Run the Docker container using `docker run -p 8000:8000 --rm mnist-digit-recognition`.
 3) Access the API with `mnist_digit_recognition_html.html`. 
